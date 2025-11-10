@@ -462,6 +462,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   items: []
+  itemIdQuery: 1
 --- !u!4 &1096813706
 Transform:
   m_ObjectHideFlags: 0

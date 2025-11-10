@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class InventoryManager : MonoBehaviour
-{
+{ 
     public List<InventoryItem> items = new List<InventoryItem>();
     List<InventoryItem> sortedList = new List<InventoryItem>();
     public int itemIdQuery = 0;
@@ -14,11 +14,6 @@ public class InventoryManager : MonoBehaviour
         items.Add(new InventoryItem(2, "Potion", 75));
         items.Add(new InventoryItem(1, "Helmet", 200));
         items.Add(new InventoryItem(3, "Two-Handed Sword", 300));
-        sortedList.Add(new InventoryItem(4, "Sword", 100)); // item ID, item name, item value
-        sortedList.Add(new InventoryItem(5, "Shield", 150));
-        sortedList.Add(new InventoryItem(2, "Potion", 75));
-        sortedList.Add(new InventoryItem(1, "Helmet", 200));
-        sortedList.Add(new InventoryItem(3, "Two-Handed Sword", 300));
 
         InventoryItem foundItem = FindItemByName("Sword");
 

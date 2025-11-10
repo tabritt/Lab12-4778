@@ -4,7 +4,7 @@ using UnityEngine;
 public class InventoryManager : MonoBehaviour
 { 
     public List<InventoryItem> items = new List<InventoryItem>();
-    List<InventoryItem> sortedList = new List<InventoryItem>();
+    public List<InventoryItem> sortedList = new List<InventoryItem>();
     public int itemIdQuery = 0;
 
     void Start()

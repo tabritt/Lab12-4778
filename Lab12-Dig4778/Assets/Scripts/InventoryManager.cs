@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class InventoryManager : MonoBehaviour
@@ -28,7 +28,7 @@ public class InventoryManager : MonoBehaviour
         {
             Debug.Log($"Found item by ID - ID: {foundById.ID}, Name: {foundById.Name} Value: {foundItem.Value}");
         }
-
+        QuickSortByValue();
     }
 
 
@@ -122,4 +122,51 @@ public class InventoryManager : MonoBehaviour
 
         }
     }
+    public void QuickSortByValue()
+    {
+        QuickSortItemsByValue(items, 0, items.Count - 1);
+        Debug.Log("Items sorted by Value using QuickSort.");
+
+        foreach (var item in items)
+        {
+            Debug.Log($"→ {item.Name} (Value: {item.Value})");
+        }
+    }
+
+    private void QuickSortItemsByValue(List<InventoryItem> list, int low, int high) // sorts by value
+    {
+        if (low < high) // case for low less than high
+        {
+            int pivotIndex = PartitionByValue(list, low, high); 
+            QuickSortItemsByValue(list, low, pivotIndex - 1);
+            QuickSortItemsByValue(list, pivotIndex + 1, high);
+        }
+    } 
+
+    private int PartitionByValue(List<InventoryItem> list, int low, int high) //
+    {
+        int pivot = list[high].Value; // the pivot is the value of the item with higher value
+        int i = low - 1; // index of smaller element
+
+        for (int j = low; j < high; j++) // a loop to go through the list
+        {
+            if (list[j].Value < pivot) 
+            {
+                i++;
+                Swap(list, i, j);
+            }
+        }
+        //almost similar to the bubble sort method
+
+        Swap(list, i + 1, high);
+        return i + 1;
+    }
+
+    private void Swap(List<InventoryItem> list, int indexA, int indexB) // swaps two items in the list
+    {
+        InventoryItem temp = list[indexA];
+        list[indexA] = list[indexB];
+        list[indexB] = temp;// swaps two items in the list
+    }
+
 }

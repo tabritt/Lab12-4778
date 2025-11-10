@@ -4,7 +4,7 @@ using UnityEngine;
 public class InventoryManager : MonoBehaviour
 { 
     public List<InventoryItem> items = new List<InventoryItem>();
-    public List<InventoryItem> sortedList = new List<InventoryItem>();
+    
     public int itemIdQuery = 0;
 
     void Start()
@@ -50,6 +50,7 @@ public class InventoryManager : MonoBehaviour
     public InventoryItem BinarySearchById (int target)
     {
 
+        List<InventoryItem> sortedList = new List<InventoryItem>();
         int listLength = items.Count;
         for (int i = 0; i < listLength; i++)
         {
